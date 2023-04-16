@@ -1,5 +1,6 @@
 package com.udemyuno.models.domain;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,14 @@ public class Factura {
     private Cliente cliente;
     @Autowired
     private List<ItemFactura> items;
+
+    @PostConstruct
+    public void inicializar(){
+        // Agregamos segundo nombre:
+       cliente.setNombre(cliente.getNombre().concat(" ").concat("José"));
+        descripcion = descripcion.concat(" del cliente: ").concat(cliente.getNombre());
+
+    }
 
     public Factura() {
     }
