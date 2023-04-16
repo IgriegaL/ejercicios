@@ -15,6 +15,15 @@ public class Factura {
     @Autowired
     private List<ItemFactura> items;
 
+    public Factura() {
+    }
+
+    public Factura(String descripcion, Cliente cliente, List<ItemFactura> items) {
+        this.descripcion = descripcion;
+        this.cliente = cliente;
+        this.items = items;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }

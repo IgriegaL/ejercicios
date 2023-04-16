@@ -19,15 +19,4 @@ public class appConfig {
         ItemFactura linea2 = new ItemFactura(producto2, 2);
         return Arrays.asList(linea1, linea2); // Arrays convertir a lista
     }
-
-    @Bean
-    public String nombreProducto() {
-        return "Nombre del producto";
-    }
-
-    @Bean
-    public Integer precioProducto() {
-        return 100;
-    }
-
 }
