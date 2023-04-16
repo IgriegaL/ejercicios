@@ -1,6 +1,6 @@
 package com.udemyuno.models.domain;
 
-public class ItemFactura {
+public class  ItemFactura {
     private Producto producto;
     private Integer cantidad;
 
@@ -12,6 +12,7 @@ public class ItemFactura {
     public Producto getProducto() {
         return producto;
     }
+
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
