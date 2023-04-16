@@ -8,17 +8,39 @@
 
 <h3 th:text="${titulo}"></h3>
 
-<form th:action="@{/form}" method="post">
+<!--
+
+    para que nos funcione el th:field=*{...} debemos usar la anotación th:object="${objeto}"
+    con esto cada parte del formulario está mapeado al objeto que colocamos entre {}
+    en este caso usuario
+    con el th:field="*{usuario.username}" podemos mapear el formulario para usarlo con la clase model(Usuario )
+
+-->
+<form th:action="@{/form}" th:object="${usuario}" method="post">
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" th:field="*{nombre}" >
+    <div th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"></div>
+    <br />
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" th:field="*{apellido}" >
+    <div th:if="${#fields.hasErrors('apellido')}"  th:errors="*{apellido}"></div>
+    <br />
+
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" />
+    <input type="text" id="username" th:field="*{username}" >
+    <div th:if="${#fields.hasErrors('username')}"  th:errors="*{username}"></div>
     <br />
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" />
+    <input type="password"  id="password" th:field="*{password}"/>
+    <div th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
     <br />
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" />
+    <input type="email" id="email"  th:field="*{email}" >
+    <div th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"></div>
+
     <br />
 
     <input type="submit" value="Enviar" />
