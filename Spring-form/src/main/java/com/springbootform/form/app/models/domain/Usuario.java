@@ -1,18 +1,26 @@
 package com.springbootform.form.app.models.domain;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class Usuario {
-    @NotEmpty
+
+    //@Pattern(regexp = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][A-Z]{1}")
+    private String identificador;
+    //@NotEmpty
     private String nombre;
     @NotEmpty
      private String apellido;
 
     @NotEmpty
+    @Size(min = 3, max = 8)
     private String username;
     @NotEmpty
     private String password;
     @NotEmpty
+    @Email
     private String email;
 
     public String getUsername() {
@@ -53,5 +61,13 @@ public class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
     }
 }

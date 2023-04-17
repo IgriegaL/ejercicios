@@ -18,10 +18,16 @@
 -->
 <form th:action="@{/form}" th:object="${usuario}" method="post">
 
+    <label for="identificador">Identificador:</label>
+    <input type="text" id="identificador " th:field="*{identificador}" >
+    <div th:if="${#fields.hasErrors('identificador')}"  th:errors="*{identificador}"></div>
+    <br />
+
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" th:field="*{nombre}" >
     <div th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"></div>
     <br />
+
     <label for="apellido">Apellido:</label>
     <input type="text" id="apellido" th:field="*{apellido}" >
     <div th:if="${#fields.hasErrors('apellido')}"  th:errors="*{apellido}"></div>
