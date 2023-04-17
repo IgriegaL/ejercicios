@@ -1,18 +1,23 @@
 package com.springbootform.form.app.models.domain;
 
+import com.springbootform.form.app.validation.IdentificadorRegex;
+import com.springbootform.form.app.validation.Requerido;
+
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
 
-    //@Pattern(regexp = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][A-Z]{1}")
+	@IdentificadorRegex
     private String identificador;
     //@NotEmpty
     private String nombre;
-    @NotEmpty
-     private String apellido;
+    //@NotEmpty
+    @Requerido
+    private String apellido;
 
     @NotEmpty
     @Size(min = 3, max = 8)

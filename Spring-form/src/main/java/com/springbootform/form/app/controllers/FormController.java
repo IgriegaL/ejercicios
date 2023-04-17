@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -18,6 +20,12 @@ public class FormController {
 
     @Autowired
     private UsuarioValidador validador;
+
+    // Inyectamos el validador a binder, con esto todas las validaciones se harán en iniBinder.
+    @InitBinder
+    public void initBinder(WebDataBinder binder){
+        binder.addValidators(validador);
+    }
 
     @GetMapping({"/form","","/"})
     public String form(Model model){
@@ -44,9 +52,6 @@ public class FormController {
         el objeto usuario y result para
         registrar los errores
         */
-
-        validador.validate(usuario,result);
-
         model.addAttribute("titulo","Resultado Form");
         if(result.hasErrors()){
              return "form";
