@@ -15,7 +15,7 @@ import jakarta.validation.Payload;
 @Target({ FIELD, METHOD })
 public @interface Requerido {
 	// Copiados de @NotBlanck y cambiamos el mensaje
-	String message() default "Campo apelido es requerido";
+	String message() default "El campo es requerido - usando anotaciones";
 
 	Class<?>[] groups() default { };
 

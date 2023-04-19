@@ -13,7 +13,7 @@ public class IdentificadorRegexValidador implements ConstraintValidator<Identifi
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         // lógica de validación
-        return value != null && value.matches("[a-zA-Z0-9]+");
+        return value != null && value.matches("[0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][A-Z]{1}");
     }
 }
 

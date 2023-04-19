@@ -17,17 +17,6 @@ public class UsuarioValidador implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        // Con este paso podemos ahora validar los campos de usuario
-        // Y los errores se pasan a través de errors
-        //Usuario usuario = (Usuario) target;
-        // Usamos ValidationUtils y su metodo reject is Empty para saber si está vacío el campo.
-        // (error, atributodelobjeto , string registrado en messages.properties)
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre","NotEmpty.usuario.nombre");
-        //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "apellido","NotEmpty.usuario.apellido");
-        // Validar identificador matches con formato es igual false
-        /*if (!usuario.getIdentificador().matches("[0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][A-Z]{1}")) {
-            errors.rejectValue("identificador","pattern.usuario.identificador");
-        }*/
-
     }
 }
